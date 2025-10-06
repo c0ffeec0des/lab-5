@@ -23,13 +23,15 @@ public final class GetAverageGradeUseCase {
         // Call the API to get usernames of all your team members
         float sum = 0;
         int count = 0;
-        // TODO Task 3b: Go to the MongoGradeDataBase class and implement getMyTeam.
         final Team team = gradeDataBase.getMyTeam();
-        final Grade[] grades = gradeDataBase.getGrades(course);
-        for  (Grade grade : grades) {
-            sum += grade.getGrade();
+        final String[] usernames = team.getMembers();
+        for (String username : usernames) {
             count++;
+            Grade gr_obj = gradeDataBase.getGrade(username, course);
+            int grade = gr_obj.getGrade();
+            sum += grade;
         }
+
         if (count == 0) {
             return 0;
         }
