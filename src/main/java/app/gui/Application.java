@@ -385,6 +385,7 @@ public class Application {
         theCard.add(new JLabel("The course you want to calculate the team average for:"));
         theCard.add(courseField);
         theCard.add(getAverageButton);
+        theCard.add(getTopGradeButton);
         theCard.add(leaveTeamButton);
         theCard.add(resultLabel);
         return theCard;
